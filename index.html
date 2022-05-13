@@ -31,7 +31,6 @@
             <pre>
                 <code>
 void setup() {
-  int delay_time = 500 
   for (int i = 2; i <= 13; i++) {
     pinMode(i, OUTPUT);
   }
@@ -40,9 +39,8 @@ void setup() {
 void loop() {
   for (int i = 2; i <= 13; i++) {
     digitalWrite(i, HIGH);
-    delay(i);
+    delay(500);
     digitalWrite(i, LOW);
-    delay(i);
   }
 }
                 </code>
