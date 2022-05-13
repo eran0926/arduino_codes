@@ -32,6 +32,25 @@ void loop() {
        <a href="javascript:void(0)" onclick="CopyTextToClipboard('code_div')">
        <i class="fas fa-clipboard"></i> 單鍵複製程式碼
         </a>
+     <script>
+        function CopyTextToClipboard(id) {
+
+    var TextRange = document.createRange();
+
+    TextRange.selectNode(document.getElementById(id));
+
+    sel = window.getSelection();
+
+       sel.removeAllRanges();
+
+       sel.addRange(TextRange);
+
+    document.execCommand("copy");
+
+    alert("複製完成！")   //此行可加可不加
+
+}
+     </script>
     
     </body>
 </html>
