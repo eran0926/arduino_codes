@@ -6,11 +6,11 @@
     </head>
     <body>
         <p>
-            Arduino 燈qqq
+            Arduino 燈
         </p>
-        
-        <pre>
-            <code>
+        <div id="code_div">
+            <pre>
+                <code>
 void setup() {
   int delay_time = 500 
   for (int i = 2; i <= 13; i++) {
@@ -26,8 +26,12 @@ void loop() {
     delay(i);
   }
 }
-            </code>
-        </prer>
+                </code>
+            </pre>
+        </div>
+       <a href="javascript:void(0)" onclick="CopyTextToClipboard('code_div')">
+       <i class="fas fa-clipboard"></i> 單鍵複製程式碼
+        </a>
     
     </body>
 </html>
