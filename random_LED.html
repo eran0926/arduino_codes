@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    <ul>
+        <li><a href ="index.html">LED</a></li>
+        <li>second item</li>
+        <li>third item</li>
+    </ul>
+        <script>
+            function CopyTextToClipboard(id) {
+
+                var TextRange = document.createRange();
+
+                TextRange.selectNode(document.getElementById(id));
+
+                sel = window.getSelection();
+
+       sel.removeAllRanges();
+
+       sel.addRange(TextRange);
+
+    document.execCommand("copy");
+
+    alert("複製完成！")   //此行可加可不加
+
+}
+     </script>
+        <p>
+            Arduino 燈
+        </p>
+        <div id="code_div">
+           
+       <button onclick="CopyTextToClipboard('code_div')">複製程式碼</button>
+            <pre><code>
+int pin;
+
+void setup() {
+  for (int i = 2; i <= 13; i++) {
+    pinMode(i, OUTPUT);
+  }
+}
+
+void loop() {
+  pin = random(1,14);
+  for (int i = 1; i <= 4; i++) {
+    digitalWrite(pin, HIGH);
+    delay(80);
+    digitalWrite(pin, LOW);
+    delay(80);
+  }
+  for (int i = 1; i <= 4; i++) {
+    pin = random(1,14);
+    digitalWrite(pin, HIGH);
+    delay(1500);
+    digitalWrite(pin, LOW);
+  }
+}
+</code></pre>
+        </div>
+       <script src="https://gist.github.com/eran0926/c23d45e19ab0dbcb1c4fb63453af5a76.js"></script>
+       
+    
+    </body>
+</html>
