@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-    <head>
-        <meta charset="UTF-8">
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- import highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/arduino-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <!-- import highlight.js end -->
+
+</head>
+
+<body>
     <ul>
-        <li><a href ="#">首頁</a></li>
-        <li><a href ="index.html">.....</a></li>
-        <li><a href ="random_LED.html">跳燈</a></li>
+        <li><a href="#">首頁</a></li>
+        <li><a href="index.html">.....</a></li>
+        <li><a href="random_LED.html">跳燈</a></li>
     </ul>
-     <script>
+    <script>
         function CopyTextToClipboard(id) {
+            var TextRange = document.createRange();
+            TextRange.selectNode(document.getElementById(id));
+            sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(TextRange);
+            document.execCommand("copy");
+            alert("複製完成！")   //此行可加可不加
+        }
+    </script>
+    <p>
+        Arduino 燈
+    </p>
 
-    var TextRange = document.createRange();
-
-    TextRange.selectNode(document.getElementById(id));
-
-    sel = window.getSelection();
-
-       sel.removeAllRanges();
-
-       sel.addRange(TextRange);
-
-    document.execCommand("copy");
-
-    alert("複製完成！")   //此行可加可不加
-
-}
-     </script>
-        <p>
-            Arduino 燈
-        </p>
-        
-       <button onclick="CopyTextToClipboard('code_div')">複製程式碼</button>
-        <div id="code_div">
-           
-            <pre><code>
+    <button onclick="CopyTextToClipboard('code_div')">複製程式碼</button>
+    <div id="code_div">
+        <pre>
+        <code class="arduino">
 void setup() {
-  for (int i = 2; i <= 13; i++) {
-    pinMode(i, OUTPUT);
-  }
+    for (int i = 2; i <= 13; i++) {
+        pinMode(i, OUTPUT);
+    }
 }
 
 void loop() {
-  for (int i = 2; i <= 13; i++) {
-    digitalWrite(i, HIGH);
-    delay(500);
-    digitalWrite(i, LOW);
-  }
+    for (int i = 2; i <= 13; i++) {
+        digitalWrite(i, HIGH);
+        delay(500);
+        digitalWrite(i, LOW);
+    }
 }
-</code></pre>
-        </div>
-       <script src="https://gist.github.com/eran0926/c23d45e19ab0dbcb1c4fb63453af5a76.js"></script>
-    </body>
+        </code>
+        </pre>
+    </div>
+    <script>hljs.highlightAll();</script>
+
+    <!-- <script src="https://gist.github.com/eran0926/c23d45e19ab0dbcb1c4fb63453af5a76.js"></script> -->
+</body>
+
 </html>
